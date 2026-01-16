@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete HTML Course with 50+ Tags | Ram Sir</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📘</text></svg>">
+    <!-- Internal CSS -->
+    <style>
+        /* CSS Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3e7f1 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            font-size: 14px;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 70%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+            background: none;
+            border: none;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 80px auto 30px;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 20px;
+            color: white;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: float 20s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        .tag-counter {
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-top: 15px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tags Section */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            color: var(--dark);
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .category-container {
+            margin-bottom: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-icon {
+            font-size: 1.3rem;
+        }
+
+        .tags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tag-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            animation: slideUp 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .tag-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .tag-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .tag-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tag-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .tag-theory {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .tag-use-case {
+            background: #f0f9ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--secondary);
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        .use-case-label {
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .tag-code {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .code-tag {
+            color: #60a5fa;
+        }
+
+        .code-attr {
+            color: #fbbf24;
+        }
+
+        .code-value {
+            color: #34d399;
+        }
+
+        .code-comment {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        /* Trainer Section */
+        .trainer-section {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f7ff 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trainer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .trainer-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .trainer-image {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .trainer-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+            animation: pulse 2s infinite;
+            border: 5px solid white;
+        }
+
+        .trainer-info {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .trainer-name {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .trainer-role {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .trainer-exp {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Query Form */
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-30px, -30px) rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .tags-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: white;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
+                padding: 40px 20px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                border-radius: 0 0 0 20px;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 15px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .trainer-container, .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tech-stack {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 40px 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .tag-card {
+                padding: 15px;
+            }
+
+            .trainer-section, .form-section {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .category-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon">📘</span>
+                <span>Ram Sir</span>
+            </a>
+            
+            <button class="hamburger" id="hamburger">☰</button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#html-tags" class="nav-link">HTML Tags</a></li>
+                <li><a href="#trainer" class="nav-link">Trainer</a></li>
+                <li><a href="#query" class="nav-link">Query</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Complete HTML Course with 50+ Tags</h1>
+                <p>Master HTML from beginner to advanced level with comprehensive explanations of 50+ HTML tags, real-world examples, and practical exercises. Perfect for aspiring web developers!</p>
+                <div class="tag-counter">📚 50+ HTML Tags Covered | 💻 Practical Examples | 🎓 Beginner to Advanced</div>
+                <a href="#html-tags" class="cta-button">Start Learning HTML Tags</a>
+            </div>
+        </section>
+
+        <!-- HTML Tags Section -->
+        <section id="html-tags">
+            <h2 class="section-title">HTML Tags Explained</h2>
+            
+            <!-- Document Structure Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">🏗️</span> Document Structure Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📄</span>
+                            <span class="tag-name">&lt;html&gt;</span>
+                        </div>
+                        <p class="tag-theory">The root element of an HTML document. All other elements are contained within this tag.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Wrapping the entire HTML document content.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">html</span> <span class="code-attr">lang</span>=<span class="code-value">"en"</span>&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;...&lt;/body&gt;
+&lt;/<span class="code-tag">html</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">👤</span>
+                            <span class="tag-name">&lt;head&gt;</span>
+                        </div>
+                        <p class="tag-theory">Contains meta-information about the document, like title, links to stylesheets, and scripts.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding metadata, linking CSS, setting the page title.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">head</span>&gt;
+  &lt;<span class="code-tag">title</span>&gt;My Page&lt;/<span class="code-tag">title</span>&gt;
+  &lt;<span class="code-tag">meta</span> <span class="code-attr">charset</span>=<span class="code-value">"UTF-8"</span>&gt;
+&lt;/<span class="code-tag">head</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📝</span>
+                            <span class="tag-name">&lt;body&gt;</span>
+                        </div>
+                        <p class="tag-theory">Contains all the visible content of the HTML document that users see in the browser.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding headers, paragraphs, images, and other visible elements.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">body</span>&gt;
+  &lt;<span class="code-tag">h1</span>&gt;Welcome&lt;/<span class="code-tag">h1</span>&gt;
+  &lt;<span class="code-tag">p</span>&gt;This is my page.&lt;/<span class="code-tag">p</span>&gt;
+&lt;/<span class="code-tag">body</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🏷️</span>
+                            <span class="tag-name">&lt;title&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines the title of the document shown in browser's title bar or tab.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Setting page title for browsers and search engines.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">title</span>&gt;My Webpage - Home&lt;/<span class="code-tag">title</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔧</span>
+                            <span class="tag-name">&lt;meta&gt;</span>
+                        </div>
+                        <p class="tag-theory">Provides metadata about the HTML document such as character set, viewport settings, and keywords.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Setting character encoding, viewport for responsive design, SEO descriptions.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">meta</span> <span class="code-attr">charset</span>=<span class="code-value">"UTF-8"</span>&gt;
+&lt;<span class="code-tag">meta</span> <span class="code-attr">name</span>=<span class="code-value">"viewport"</span> 
+      <span class="code-attr">content</span>=<span class="code-value">"width=device-width, initial-scale=1.0"</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text Formatting Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">📝</span> Text Formatting Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">#</span>
+                            <span class="tag-name">&lt;h1&gt;-&lt;h6&gt;</span>
+                        </div>
+                        <p class="tag-theory">Heading tags define headings, with h1 being the most important and h6 the least.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Creating document structure with hierarchical headings.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">h1</span>&gt;Main Title&lt;/<span class="code-tag">h1</span>&gt;
+&lt;<span class="code-tag">h2</span>&gt;Section Title&lt;/<span class="code-tag">h2</span>&gt;
+&lt;<span class="code-tag">h3</span>&gt;Subsection Title&lt;/<span class="code-tag">h3</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📄</span>
+                            <span class="tag-name">&lt;p&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines a paragraph of text. Browsers add margin before and after paragraphs.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Writing articles, descriptions, or any block of text.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">p</span>&gt;This is a paragraph of text that 
+contains multiple sentences.&lt;/<span class="code-tag">p</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔗</span>
+                            <span class="tag-name">&lt;a&gt;</span>
+                        </div>
+                        <p class="tag-theory">Creates hyperlinks to other web pages, files, locations, or email addresses.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Navigation between pages, external references, download links.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-value">"https://example.com"</span>
+   <span class="code-attr">target</span>=<span class="code-value">"_blank"</span>&gt;
+  Visit Example
+&lt;/<span class="code-tag">a</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">💪</span>
+                            <span class="tag-name">&lt;strong&gt;</span>
+                        </div>
+                        <p class="tag-theory">Indicates that its contents have strong importance, seriousness, or urgency.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Emphasizing important text with semantic meaning.
+                        </div>
+                        <pre class="tag-code"><code>This is &lt;<span class="code-tag">strong</span>&gt;very important&lt;/<span class="code-tag">strong</span>&gt; text.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">✍️</span>
+                            <span class="tag-name">&lt;em&gt;</span>
+                        </div>
+                        <p class="tag-theory">Marks text that has stress emphasis. Browsers typically display as italic.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding emphasis to words or phrases in sentences.
+                        </div>
+                        <pre class="tag-code"><code>I &lt;<span class="code-tag">em</span>&gt;really&lt;/<span class="code-tag">em</span>&gt; want to go.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔤</span>
+                            <span class="tag-name">&lt;span&gt;</span>
+                        </div>
+                        <p class="tag-theory">Generic inline container for phrasing content, used to style parts of text.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Styling specific parts of text without line breaks.
+                        </div>
+                        <pre class="tag-code"><code>This is &lt;<span class="code-tag">span</span> <span class="code-attr">style</span>=<span class="code-value">"color: red;"</span>&gt;red text&lt;/<span class="code-tag">span</span>&gt;.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📦</span>
+                            <span class="tag-name">&lt;div&gt;</span>
+                        </div>
+                        <p class="tag-theory">Generic container for flow content with no semantic meaning.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Grouping elements for styling or scripting purposes.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-value">"container"</span>&gt;
+  &lt;p&gt;Content here&lt;/p&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">↩️</span>
+                            <span class="tag-name">&lt;br&gt;</span>
+                        </div>
+                        <p class="tag-theory">Produces a line break in text. Useful for addresses or poems.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding line breaks within text without starting new paragraphs.
+                        </div>
+                        <pre class="tag-code"><code>First line&lt;<span class="code-tag">br</span>&gt;
+Second line&lt;<span class="code-tag">br</span>&gt;
+Third line</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">➖</span>
+                            <span class="tag-name">&lt;hr&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents a thematic break between paragraph-level elements.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Separating content sections visually with a horizontal line.
+                        </div>
+                        <pre class="tag-code"><code>&lt;p&gt;First section&lt;/p&gt;
+&lt;<span class="code-tag">hr</span>&gt;
+&lt;p&gt;Second section&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Semantic Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">🏢</span> Semantic Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📰</span>
+                            <span class="tag-name">&lt;header&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents introductory content, typically a group of introductory or navigational aids.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Page header containing logo, navigation, and heading.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">header</span>&gt;
+  &lt;h1&gt;Website Title&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/<span class="code-tag">header</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">👣</span>
+                            <span class="tag-name">&lt;footer&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents a footer for its nearest sectioning content or sectioning root element.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Page footer with copyright, contact info, and links.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">footer</span>&gt;
+  &lt;p&gt;© 2026 Company Name&lt;/p&gt;
+  &lt;p&gt;Contact: info@example.com&lt;/p&gt;
+&lt;/<span class="code-tag">footer</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🗂️</span>
+                            <span class="tag-name">&lt;section&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents a standalone section of content, typically with a heading.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Dividing page into thematic groups like chapters, tabs.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">section</span>&gt;
+  &lt;h2&gt;Chapter 1&lt;/h2&gt;
+  &lt;p&gt;Content here...&lt;/p&gt;
+&lt;/<span class="code-tag">section</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📰</span>
+                            <span class="tag-name">&lt;article&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents a self-contained composition that could be distributed independently.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Blog posts, news articles, forum posts, product cards.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">article</span>&gt;
+  &lt;h2&gt;Blog Post Title&lt;/h2&gt;
+  &lt;p&gt;Blog content...&lt;/p&gt;
+&lt;/<span class="code-tag">article</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🧭</span>
+                            <span class="tag-name">&lt;nav&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents a section of a page whose purpose is to provide navigation links.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Main navigation menu, table of contents, pagination.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">nav</span>&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/about"&gt;About&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/<span class="code-tag">nav</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">ℹ️</span>
+                            <span class="tag-name">&lt;aside&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents a portion of a document whose content is indirectly related to main content.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Sidebars, pull quotes, advertisements, related links.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">aside</span>&gt;
+  &lt;h3&gt;Related Articles&lt;/h3&gt;
+  &lt;ul&gt;...&lt;/ul&gt;
+&lt;/<span class="code-tag">aside</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📅</span>
+                            <span class="tag-name">&lt;time&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents a specific period in time, with optional datetime attribute.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Displaying dates, times, durations in machine-readable format.
+                        </div>
+                        <pre class="tag-code"><code>Published on &lt;<span class="code-tag">time</span> <span class="code-attr">datetime</span>=<span class="code-value">"2026-01-15"</span>&gt;
+  January 15, 2026
+&lt;/<span class="code-tag">time</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Media Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">🖼️</span> Media Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🖼️</span>
+                            <span class="tag-name">&lt;img&gt;</span>
+                        </div>
+                        <p class="tag-theory">Embeds an image into the document. It's a self-closing tag with required src attribute.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding photographs, illustrations, logos, or icons to a webpage.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">img</span> <span class="code-attr">src</span>=<span class="code-value">"photo.jpg"</span> 
+     <span class="code-attr">alt</span>=<span class="code-value">"Description"</span>
+     <span class="code-attr">width</span>=<span class="code-value">"300"</span>
+     <span class="code-attr">height</span>=<span class="code-value">"200"</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🎥</span>
+                            <span class="tag-name">&lt;video&gt;</span>
+                        </div>
+                        <p class="tag-theory">Embeds video content with support for multiple formats and playback controls.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding tutorial videos, product demos, or background videos.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">video</span> <span class="code-attr">controls</span> <span class="code-attr">width</span>=<span class="code-value">"640"</span>&gt;
+  &lt;<span class="code-tag">source</span> <span class="code-attr">src</span>=<span class="code-value">"video.mp4"</span> <span class="code-attr">type</span>=<span class="code-value">"video/mp4"</span>&gt;
+  Your browser does not support video.
+&lt;/<span class="code-tag">video</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔊</span>
+                            <span class="tag-name">&lt;audio&gt;</span>
+                        </div>
+                        <p class="tag-theory">Embeds sound content with support for multiple audio formats and playback controls.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding background music, podcasts, or sound effects.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">audio</span> <span class="code-attr">controls</span>&gt;
+  &lt;<span class="code-tag">source</span> <span class="code-attr">src</span>=<span class="code-value">"audio.mp3"</span> <span class="code-attr">type</span>=<span class="code-value">"audio/mpeg"</span>&gt;
+&lt;/<span class="code-tag">audio</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🖼️</span>
+                            <span class="tag-name">&lt;picture&gt;</span>
+                        </div>
+                        <p class="tag-theory">Contains multiple source elements for responsive images, allowing different images for different displays.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Responsive images that change based on screen size or resolution.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">picture</span>&gt;
+  &lt;<span class="code-tag">source</span> <span class="code-attr">media</span>=<span class="code-value">"(min-width: 800px)"</span> 
+          <span class="code-attr">srcset</span>=<span class="code-value">"large.jpg"</span>&gt;
+  &lt;<span class="code-tag">img</span> <span class="code-attr">src</span>=<span class="code-value">"small.jpg"</span> <span class="code-attr">alt</span>=<span class="code-value">"Description"</span>&gt;
+&lt;/<span class="code-tag">picture</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📺</span>
+                            <span class="tag-name">&lt;iframe&gt;</span>
+                        </div>
+                        <p class="tag-theory">Embeds another HTML page within the current page, often used for external content.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Embedding YouTube videos, Google Maps, or external widgets.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">iframe</span> <span class="code-attr">src</span>=<span class="code-value">"https://www.youtube.com/embed/..."</span>
+        <span class="code-attr">width</span>=<span class="code-value">"560"</span> <span class="code-attr">height</span>=<span class="code-value">"315"</span>&gt;
+&lt;/<span class="code-tag">iframe</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- List Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">📋</span> List Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">•</span>
+                            <span class="tag-name">&lt;ul&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines an unordered (bulleted) list. List items are marked with bullets.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Creating navigation menus, feature lists, or any collection without specific order.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">ul</span>&gt;
+  &lt;<span class="code-tag">li</span>&gt;First item&lt;/<span class="code-tag">li</span>&gt;
+  &lt;<span class="code-tag">li</span>&gt;Second item&lt;/<span class="code-tag">li</span>&gt;
+&lt;/<span class="code-tag">ul</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">1.</span>
+                            <span class="tag-name">&lt;ol&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines an ordered (numbered) list. List items are marked with numbers or letters.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Creating step-by-step instructions, rankings, or any ordered sequence.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">ol</span>&gt;
+  &lt;<span class="code-tag">li</span>&gt;First step&lt;/<span class="code-tag">li</span>&gt;
+  &lt;<span class="code-tag">li</span>&gt;Second step&lt;/<span class="code-tag">li</span>&gt;
+&lt;/<span class="code-tag">ol</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📝</span>
+                            <span class="tag-name">&lt;li&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines a list item within ordered or unordered lists.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Individual items within any type of list.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">ul</span>&gt;
+  &lt;<span class="code-tag">li</span>&gt;Item 1&lt;/<span class="code-tag">li</span>&gt;
+  &lt;<span class="code-tag">li</span>&gt;Item 2&lt;/<span class="code-tag">li</span>&gt;
+&lt;/<span class="code-tag">ul</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📖</span>
+                            <span class="tag-name">&lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</span>
+                        </div>
+                        <p class="tag-theory">Definition list (dl) with terms (dt) and descriptions (dd) for glossary-style content.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Glossaries, metadata, FAQ sections, or any term-description pairs.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">dl</span>&gt;
+  &lt;<span class="code-tag">dt</span>&gt;HTML&lt;/<span class="code-tag">dt</span>&gt;
+  &lt;<span class="code-tag">dd</span>&gt;HyperText Markup Language&lt;/<span class="code-tag">dd</span>&gt;
+  &lt;<span class="code-tag">dt</span>&gt;CSS&lt;/<span class="code-tag">dt</span>&gt;
+  &lt;<span class="code-tag">dd</span>&gt;Cascading Style Sheets&lt;/<span class="code-tag">dd</span>&gt;
+&lt;/<span class="code-tag">dl</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Table Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">📊</span> Table Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📊</span>
+                            <span class="tag-name">&lt;table&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines a table for displaying data in rows and columns.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Displaying tabular data like schedules, pricing, or statistics.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">table</span>&gt;
+  &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;John&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;
+&lt;/<span class="code-tag">table</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📈</span>
+                            <span class="tag-name">&lt;tr&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines a row in an HTML table.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Creating rows in data tables.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">tr</span>&gt;
+  &lt;td&gt;Data 1&lt;/td&gt;
+  &lt;td&gt;Data 2&lt;/td&gt;
+&lt;/<span class="code-tag">tr</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📝</span>
+                            <span class="tag-name">&lt;td&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines a standard data cell in an HTML table.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Individual cells containing data in a table.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">td</span>&gt;Cell Data&lt;/<span class="code-tag">td</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📌</span>
+                            <span class="tag-name">&lt;th&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines a header cell in an HTML table.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Column or row headers in data tables.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">th</span>&gt;Column Header&lt;/<span class="code-tag">th</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">👤</span>
+                            <span class="tag-name">&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;</span>
+                        </div>
+                        <p class="tag-theory">Group table rows into header, body, and footer sections for better structure.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Structuring complex tables with headers, data, and summaries.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">table</span>&gt;
+  &lt;<span class="code-tag">thead</span>&gt;&lt;tr&gt;&lt;th&gt;Header&lt;/th&gt;&lt;/tr&gt;&lt;/<span class="code-tag">thead</span>&gt;
+  &lt;<span class="code-tag">tbody</span>&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/<span class="code-tag">tbody</span>&gt;
+  &lt;<span class="code-tag">tfoot</span>&gt;&lt;tr&gt;&lt;td&gt;Summary&lt;/td&gt;&lt;/tr&gt;&lt;/<span class="code-tag">tfoot</span>&gt;
+&lt;/<span class="code-tag">table</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Form Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">📋</span> Form Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📋</span>
+                            <span class="tag-name">&lt;form&gt;</span>
+                        </div>
+                        <p class="tag-theory">Creates an interactive form for user input, which can be submitted to a server.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Contact forms, login forms, registration forms, search boxes.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">form</span> <span class="code-attr">action</span>=<span class="code-value">"/submit"</span> <span class="code-attr">method</span>=<span class="code-value">"POST"</span>&gt;
+  &lt;input type="text" name="username"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/<span class="code-tag">form</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">⌨️</span>
+                            <span class="tag-name">&lt;input&gt;</span>
+                        </div>
+                        <p class="tag-theory">Creates interactive controls for web-based forms, with various types like text, email, password, etc.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Text fields, checkboxes, radio buttons, file uploads, date pickers.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-value">"email"</span> 
+       <span class="code-attr">name</span>=<span class="code-value">"email"</span>
+       <span class="code-attr">placeholder</span>=<span class="code-value">"Enter email"</span>
+       <span class="code-attr">required</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📝</span>
+                            <span class="tag-name">&lt;textarea&gt;</span>
+                        </div>
+                        <p class="tag-theory">Creates a multi-line text input control, useful for longer text entries like comments or messages.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Comment sections, message boxes, feedback forms, descriptions.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">textarea</span> <span class="code-attr">name</span>=<span class="code-value">"message"</span> 
+          <span class="code-attr">rows</span>=<span class="code-value">"4"</span> 
+          <span class="code-attr">cols</span>=<span class="code-value">"50"</span>
+          <span class="code-attr">placeholder</span>=<span class="code-value">"Enter your message"</span>&gt;
+&lt;/<span class="code-tag">textarea</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📋</span>
+                            <span class="tag-name">&lt;select&gt; & &lt;option&gt;</span>
+                        </div>
+                        <p class="tag-theory">Creates a dropdown list with selectable options.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Country selection, category filters, dropdown menus.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">select</span> <span class="code-attr">name</span>=<span class="code-value">"country"</span>&gt;
+  &lt;<span class="code-tag">option</span> <span class="code-attr">value</span>=<span class="code-value">"in"</span>&gt;India&lt;/<span class="code-tag">option</span>&gt;
+  &lt;<span class="code-tag">option</span> <span class="code-attr">value</span>=<span class="code-value">"us"</span>&gt;USA&lt;/<span class="code-tag">option</span>&gt;
+&lt;/<span class="code-tag">select</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">✅</span>
+                            <span class="tag-name">&lt;button&gt;</span>
+                        </div>
+                        <p class="tag-theory">Creates a clickable button that can submit forms or trigger JavaScript actions.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Submit buttons, action buttons, toggle buttons.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">button</span> <span class="code-attr">type</span>=<span class="code-value">"submit"</span>&gt;
+  Submit Form
+&lt;/<span class="code-tag">button</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🏷️</span>
+                            <span class="tag-name">&lt;label&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines a label for form elements, improving accessibility and usability.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Labeling form fields for screen readers and better UX.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-value">"username"</span>&gt;
+  Username:
+&lt;/<span class="code-tag">label</span>&gt;
+&lt;input type="text" id="username"&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📦</span>
+                            <span class="tag-name">&lt;fieldset&gt; & &lt;legend&gt;</span>
+                        </div>
+                        <p class="tag-theory">Groups related form elements with a caption for better organization.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Grouping related form fields like address or payment information.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">fieldset</span>&gt;
+  &lt;<span class="code-tag">legend</span>&gt;Contact Information&lt;/<span class="code-tag">legend</span>&gt;
+  &lt;label&gt;Name: &lt;input type="text"&gt;&lt;/label&gt;
+&lt;/<span class="code-tag">fieldset</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formatting Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">🎨</span> Formatting Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">💪</span>
+                            <span class="tag-name">&lt;b&gt;</span>
+                        </div>
+                        <p class="tag-theory">Makes text bold without conveying extra importance (purely presentational).</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Styling text as bold for visual emphasis without semantic meaning.
+                        </div>
+                        <pre class="tag-code"><code>This is &lt;<span class="code-tag">b</span>&gt;bold text&lt;/<span class="code-tag">b</span>&gt;.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">✍️</span>
+                            <span class="tag-name">&lt;i&gt;</span>
+                        </div>
+                        <p class="tag-theory">Makes text italic, typically used for technical terms, foreign phrases, or thoughts.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Foreign words, technical terms, book/movie titles, thoughts.
+                        </div>
+                        <pre class="tag-code"><code>The term &lt;<span class="code-tag">i</span>&gt;HTML&lt;/<span class="code-tag">i</span>&gt; stands for...</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔤</span>
+                            <span class="tag-name">&lt;u&gt;</span>
+                        </div>
+                        <p class="tag-theory">Underlines text, often used for proper names in Chinese or misspelled words.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Indicating proper names, highlighting misspelled words.
+                        </div>
+                        <pre class="tag-code"><code>This word is &lt;<span class="code-tag">u</span>&gt;misspelled&lt;/<span class="code-tag">u</span>&gt;.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">💻</span>
+                            <span class="tag-name">&lt;code&gt;</span>
+                        </div>
+                        <p class="tag-theory">Displays a fragment of computer code in monospace font.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Inline code snippets in documentation or tutorials.
+                        </div>
+                        <pre class="tag-code"><code>Use the &lt;<span class="code-tag">code</span>&gt;console.log()&lt;/<span class="code-tag">code</span>&gt; function.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📄</span>
+                            <span class="tag-name">&lt;pre&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines preformatted text that preserves both spaces and line breaks.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Displaying code blocks, ASCII art, or formatted text.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">pre</span>&gt;
+  function hello() {
+    console.log("Hello World");
+  }
+&lt;/<span class="code-tag">pre</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">💬</span>
+                            <span class="tag-name">&lt;blockquote&gt;</span>
+                        </div>
+                        <p class="tag-theory">Indicates that the enclosed text is an extended quotation.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Quoting text from another source, testimonials, citations.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">blockquote</span> <span class="code-attr">cite</span>=<span class="code-value">"source-url"</span>&gt;
+  This is a quoted text from another source.
+&lt;/<span class="code-tag">blockquote</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔢</span>
+                            <span class="tag-name">&lt;sub&gt; & &lt;sup&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines subscript (sub) and superscript (sup) text.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Chemical formulas (H₂O), mathematical expressions (x²), footnotes.
+                        </div>
+                        <pre class="tag-code"><code>H&lt;<span class="code-tag">sub</span>&gt;2&lt;/<span class="code-tag">sub</span>&gt;O
+x&lt;<span class="code-tag">sup</span>&gt;2&lt;/<span class="code-tag">sup</span>&gt; + y&lt;<span class="code-tag">sup</span>&gt;2&lt;/<span class="code-tag">sup</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📛</span>
+                            <span class="tag-name">&lt;mark&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents text which is marked or highlighted for reference purposes.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Highlighting search results, important passages, or references.
+                        </div>
+                        <pre class="tag-code"><code>This is &lt;<span class="code-tag">mark</span>&gt;highlighted text&lt;/<span class="code-tag">mark</span>&gt; for emphasis.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🗑️</span>
+                            <span class="tag-name">&lt;del&gt; & &lt;ins&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents deleted (del) and inserted (ins) text, typically for edits.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Showing text revisions, track changes, price updates.
+                        </div>
+                        <pre class="tag-code"><code>Price: &lt;<span class="code-tag">del</span>&gt;$100&lt;/<span class="code-tag">del</span>&gt;
+       &lt;<span class="code-tag">ins</span>&gt;$80&lt;/<span class="code-tag">ins</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">🎮</span> Interactive Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📖</span>
+                            <span class="tag-name">&lt;details&gt; & &lt;summary&gt;</span>
+                        </div>
+                        <p class="tag-theory">Creates a disclosure widget that shows/hides additional content.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            FAQ sections, collapsible content, additional information.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">details</span>&gt;
+  &lt;<span class="code-tag">summary</span>&gt;Click to expand&lt;/<span class="code-tag">summary</span>&gt;
+  &lt;p&gt;Hidden content here&lt;/p&gt;
+&lt;/<span class="code-tag">details</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📊</span>
+                            <span class="tag-name">&lt;progress&gt;</span>
+                        </div>
+                        <p class="tag-theory">Displays an indicator showing the completion progress of a task.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            File upload progress, quiz completion, achievement tracking.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">progress</span> <span class="code-attr">value</span>=<span class="code-value">"70"</span> <span class="code-attr">max</span>=<span class="code-value">"100"</span>&gt;
+  70%
+&lt;/<span class="code-tag">progress</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📈</span>
+                            <span class="tag-name">&lt;meter&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents a scalar measurement within a known range, like disk usage.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Storage usage, voting results, ratings, measurement displays.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">meter</span> <span class="code-attr">value</span>=<span class="code-value">"0.6"</span>&gt;60%&lt;/<span class="code-tag">meter</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scripting & Graphics -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">🎨</span> Scripting & Graphics Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🎨</span>
+                            <span class="tag-name">&lt;canvas&gt;</span>
+                        </div>
+                        <p class="tag-theory">Provides a space for dynamic, scriptable rendering of graphics, charts, and games.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Drawing graphics, creating games, data visualization, photo editing.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">canvas</span> <span class="code-attr">id</span>=<span class="code-value">"myCanvas"</span> 
+        <span class="code-attr">width</span>=<span class="code-value">"200"</span> 
+        <span class="code-attr">height</span>=<span class="code-value">"100"</span>&gt;
+&lt;/<span class="code-tag">canvas</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🖼️</span>
+                            <span class="tag-name">&lt;svg&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines a container for SVG graphics, which are scalable vector images.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Icons, logos, charts, diagrams, and scalable graphics.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">svg</span> <span class="code-attr">width</span>=<span class="code-value">"100"</span> <span class="code-attr">height</span>=<span class="code-value">"100"</span>&gt;
+  &lt;circle cx="50" cy="50" r="40" fill="red"/&gt;
+&lt;/<span class="code-tag">svg</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📜</span>
+                            <span class="tag-name">&lt;script&gt;</span>
+                        </div>
+                        <p class="tag-theory">Used to embed or reference executable code, typically JavaScript.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding interactivity, form validation, animations, API calls.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">script</span>&gt;
+  console.log('Hello World');
+&lt;/<span class="code-tag">script</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🎨</span>
+                            <span class="tag-name">&lt;style&gt;</span>
+                        </div>
+                        <p class="tag-theory">Contains style information for a document, typically CSS.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Adding internal CSS styles to an HTML document.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">style</span>&gt;
+  body { font-family: Arial; }
+  h1 { color: blue; }
+&lt;/<span class="code-tag">style</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔗</span>
+                            <span class="tag-name">&lt;link&gt;</span>
+                        </div>
+                        <p class="tag-theory">Defines relationship between current document and external resource.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Linking external CSS files, favicons, preloading resources.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-value">"stylesheet"</span> 
+      <span class="code-attr">href</span>=<span class="code-value">"styles.css"</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Tags -->
+            <div class="category-container">
+                <h3 class="category-title"><span class="category-icon">➕</span> Additional Important Tags</h3>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔤</span>
+                            <span class="tag-name">&lt;abbr&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents an abbreviation or acronym with optional full form via title attribute.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Showing abbreviations like HTML, CSS, WHO with tooltip explanations.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">abbr</span> <span class="code-attr">title</span>=<span class="code-value">"HyperText Markup Language"</span>&gt;
+  HTML
+&lt;/<span class="code-tag">abbr</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📞</span>
+                            <span class="tag-name">&lt;address&gt;</span>
+                        </div>
+                        <p class="tag-theory">Provides contact information for the author/owner of a document or article.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Contact information in footers, author details in articles.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">address</span>&gt;
+  Written by &lt;a href="mailto:example@example.com"&gt;
+    John Doe
+  &lt;/a&gt;&lt;br&gt;
+  Visit us at:&lt;br&gt;
+  Example.com&lt;br&gt;
+  Box 564, Disneyland&lt;br&gt;
+  USA
+&lt;/<span class="code-tag">address</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">📄</span>
+                            <span class="tag-name">&lt;main&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents the dominant content of the body of a document.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Wrapping main content area, improving accessibility.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">main</span>&gt;
+  &lt;h1&gt;Main Content&lt;/h1&gt;
+  &lt;p&gt;Article content...&lt;/p&gt;
+&lt;/<span class="code-tag">main</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔤</span>
+                            <span class="tag-name">&lt;cite&gt;</span>
+                        </div>
+                        <p class="tag-theory">Indicates a reference to a creative work, such as a book, paper, or film.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Citing books, movies, research papers, or other creative works.
+                        </div>
+                        <pre class="tag-code"><code>From the book &lt;<span class="code-tag">cite</span>&gt;
+  The Great Gatsby
+&lt;/<span class="code-tag">cite</span>&gt; by F. Scott Fitzgerald.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">💬</span>
+                            <span class="tag-name">&lt;q&gt;</span>
+                        </div>
+                        <p class="tag-theory">Indicates a short inline quotation.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Short quotes within paragraphs, dialogue, citations.
+                        </div>
+                        <pre class="tag-code"><code>He said, &lt;<span class="code-tag">q</span>&gt;
+  Life is what happens when you're busy making other plans.
+&lt;/<span class="code-tag">q</span>&gt;</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔤</span>
+                            <span class="tag-name">&lt;samp&gt;</span>
+                        </div>
+                        <p class="tag-theory">Used to enclose inline text which represents sample output from a computer program.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Displaying program output, command results, sample data.
+                        </div>
+                        <pre class="tag-code"><code>The program printed &lt;<span class="code-tag">samp</span>&gt;
+  Error: File not found
+&lt;/<span class="code-tag">samp</span>&gt; to the console.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">⌨️</span>
+                            <span class="tag-name">&lt;kbd&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents keyboard input, typically in technical documentation.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Showing keyboard shortcuts, user input in tutorials.
+                        </div>
+                        <pre class="tag-code"><code>Press &lt;<span class="code-tag">kbd</span>&gt;Ctrl&lt;/<span class="code-tag">kbd</span>&gt; + 
+&lt;<span class="code-tag">kbd</span>&gt;C&lt;/<span class="code-tag">kbd</span>&gt; to copy.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔤</span>
+                            <span class="tag-name">&lt;var&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents the name of a variable in mathematical or programming context.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Mathematical variables, programming variables in documentation.
+                        </div>
+                        <pre class="tag-code"><code>The variable &lt;<span class="code-tag">var</span>&gt;x&lt;/<span class="code-tag">var</span>&gt; 
+represents the horizontal position.</code></pre>
+                    </div>
+                    
+                    <div class="tag-card">
+                        <div class="tag-header">
+                            <span class="tag-icon">🔤</span>
+                            <span class="tag-name">&lt;small&gt;</span>
+                        </div>
+                        <p class="tag-theory">Represents side-comments and small print, like copyright and legal text.</p>
+                        <div class="tag-use-case">
+                            <span class="use-case-label">Use Case</span>
+                            Legal disclaimers, copyright information, fine print.
+                        </div>
+                        <pre class="tag-code"><code>&lt;<span class="code-tag">small</span>&gt;
+  © 2026 Ramsir. All rights reserved.
+&lt;/<span class="code-tag">small</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0; padding: 20px; background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); border-radius: 15px;">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">🎉 Comprehensive HTML Tag Coverage</h3>
+                <p style="color: var(--gray);">You've just explored <strong>50+ essential HTML tags</strong> with real-world use cases and practical examples. Each tag is crucial for modern web development!</p>
+                <p style="color: var(--secondary); font-weight: 600; margin-top: 10px;">Total Tags Covered: <span id="tagCount">55</span></p>
+            </div>
+        </section>
+
+        <!-- Trainer Section -->
+        <section class="trainer-section" id="trainer">
+            <h2 class="section-title">Meet Your Trainer</h2>
+            <div class="trainer-container">
+                <div class="trainer-image">
+                    <div class="trainer-avatar">RG</div>
+                </div>
+                <div class="trainer-info">
+                    <h3 class="trainer-name">Ramgopal Prajapati (Ram Sir)</h3>
+                    <p class="trainer-role">Sr.Technical Trainer</p>
+                    <p class="trainer-exp">With over 2+ years of experience in web development and training, Ram Sir has helped thousands of students launch their tech careers. Specializing in modern web technologies and practical, project-based learning.</p>
+                    
+                    <div class="tech-stack">
+                        <div class="tech-item"><span class="tech-icon">🌐</span> Web Development</div>
+                        <div class="tech-item"><span class="tech-icon">🐍</span> Python</div>
+                        <div class="tech-item"><span class="tech-icon">📊</span> Data Analytics</div>
+                        <div class="tech-item"><span class="tech-icon">⚛️</span> React</div>
+                        <div class="tech-item"><span class="tech-icon">🚀</span> Django</div>
+                        <div class="tech-item"><span class="tech-icon">📱</span> Mobile Apps</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Query Form Section -->
+        <section class="form-section" id="query">
+            <h2 class="form-title">Student Query Form</h2>
+            <form id="queryForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="course" class="form-label">Course Interested In</label>
+                    <select id="course" class="form-select" required>
+                        <option value="">Select a course</option>
+                        <option value="html">HTML Complete Course</option>
+                        <option value="css">CSS Mastery</option>
+                        <option value="js">JavaScript Fundamentals</option>
+                        <option value="python">Python Programming</option>
+                        <option value="web">Full Stack Web Development</option>
+                        <option value="data">Data Analytics</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Your Message / Query</label>
+                    <textarea id="message" class="form-textarea" placeholder="Write your query here..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <span>Send Query via WhatsApp</span>
+                    <span>📱</span>
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">
+                    <span>📘</span>
+                    <span>Ram Sir</span>
+                </div>
+                <p class="footer-text">Providing quality technical education since 2018. Specializing in web development, programming, and data analytics courses.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/9753528324" class="social-icon" target="_blank" title="WhatsApp">💬</a>
+                    <a href="mailto:ramsirdevix@gmail.com" class="social-icon" title="Email">✉️</a>
+                    <a href="https://www.github.com/Ramgopal-prajapati" class="social-icon" title="Github">📘</a>
+                    <a href="https://www.linkedin.com/Ramgopal Prajapati" class="social-icon" title="Linkedin">🐦</a>
+                    <a href="https://www.github.com/iamramsir" class="social-icon" title="Instagram">📷</a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#html-tags">HTML Tags</a></li>
+                    <li><a href="#trainer">Trainer Profile</a></li>
+                    <li><a href="#query">Submit Query</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-heading">Courses</h3>
+                <ul class="footer-links">
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Python Programming</a></li>
+                    <li><a href="#">Data Analytics</a></li>
+                    <li><a href="#">React Development</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-heading">Contact Info</h3>
+                <ul class="footer-links">
+                    <li>📞 +91 9753528324</li>
+                    <li>✉️ ramsirdevix@gmail.com</li>
+                    <li>📍 Indore, India</li>
+                    <li>🕒 Mon-Sat: 9AM-9PM</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2026 Ram Sir – All Rights Reserved </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">↑</a>
+
+    <!-- Internal JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+        
+        // Sticky Header and Back to Top Button
+        const header = document.querySelector('header');
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            // Sticky header with shadow
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+            
+            // Show/hide back to top button
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+            
+            // Update active nav link based on scroll position
+            updateActiveNavLink();
+        });
+        
+        // Form submission to WhatsApp
+        const queryForm = document.getElementById('queryForm');
+        
+        queryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const course = document.getElementById('course').value;
+            const message = document.getElementById('message').value;
+            
+            // Format the message for WhatsApp
+            const whatsappMessage = `*New Student Query*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Course Interested:* ${course}%0A*Message:* ${message}%0A%0A_Sent from HTML Course Website_`;
+            
+            // WhatsApp API URL with phone number
+            const phoneNumber = '9753528324';
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
+            
+            // Reset the form
+            queryForm.reset();
+            
+            // Show confirmation
+            alert('Your query has been prepared for WhatsApp. A new tab will open with your message ready to send to Ram Sir.');
+        });
+        
+        // Update active navigation link based on scroll position
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Initialize active nav link
+        updateActiveNavLink();
+        
+        // Add animation to cards when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.5s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all tag cards
+        document.querySelectorAll('.tag-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+        
+        // Count and display total tags
+        const tagCountElement = document.getElementById('tagCount');
+        const tagCards = document.querySelectorAll('.tag-card');
+        tagCountElement.textContent = tagCards.length;
+    </script>
+</body>
+</html>
